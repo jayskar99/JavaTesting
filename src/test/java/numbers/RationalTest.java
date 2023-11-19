@@ -132,6 +132,8 @@ public class RationalTest
     }
     public void testReciprocal() 
     {
+        Rational test = new Rational(0,1);
+        assertThrows(IllegalArgumentException.class, () -> test.reciprocal());
         reciprocalTest(2,3,3,2);
         reciprocalTest(3,2,2,3);
         reciprocalTest(-2,3,-3,2);
