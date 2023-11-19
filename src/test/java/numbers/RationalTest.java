@@ -168,9 +168,12 @@ public class RationalTest
     public void testTimes() 
     {   
         timesTest(2,3,2,3,4,9);
+        timesTest(-2,3,2,3,-4,9);
+
+        // would overflow/underflow directly
         timesTest(1073741830,1,3,10,322122549,1);
 
-        // overflow issues
+        // overflow/underflow error
         timesErrorTest(1073741830,1,2,1);
     }
 

@@ -50,9 +50,11 @@ public class Rational
     public Rational times(Rational r) {
         Rational rhs = new Rational(this.numerator,r.denominator);
         Rational lhs = new Rational(r.numerator,this.denominator);
-        if (Integer.MAX_VALUE / rhs.numerator < lhs.numerator || 
-            Integer.MAX_VALUE / rhs.denominator < lhs.denominator ) {
-            throw new IllegalArgumentException("overflow");
+        if ((rhs.numerator > 0 && lhs.numerator > 0) || (rhs.numerator < 0 && lhs.numerator < 0)) {
+            if ((Integer.MAX_VALUE / rhs.numerator < lhs.numerator || 
+                Integer.MAX_VALUE / rhs.denominator < lhs.denominator) ) {
+                throw new IllegalArgumentException("overflow");
+            }
         }
         return new Rational(rhs.numerator * lhs.numerator, rhs.denominator * lhs.denominator);
     }
