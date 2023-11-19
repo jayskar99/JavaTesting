@@ -82,6 +82,10 @@ public class RationalTest
         // versions with simplification
         constructorBothTest(2,2,1,1);
         constructorBothTest(4,6,2,3);
+        constructorBothTest(6,4,3,2);
+        constructorBothTest(-4,6,-2,3);
+        constructorBothTest(4,-6,-2,3);
+        constructorBothTest(-4,-6,2,3);
     }
 
 
