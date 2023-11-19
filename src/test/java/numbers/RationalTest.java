@@ -68,6 +68,8 @@ public class RationalTest
     {   
         assertThrows(IllegalArgumentException.class, () -> new Rational(1, 0));
         constructorBoth(2,3,2,3);
+        constructorBoth(3,2,3,2);
+        constructorBoth(2,2,2,2);
         constructorBoth(-2,3,-2,3);
         constructorBoth(2,-3,-2,3);
         constructorBoth(-2,-3,2,3);
