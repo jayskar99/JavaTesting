@@ -159,9 +159,18 @@ public class RationalTest
         assertThat("the numerator should be " + String.valueOf(e), value.numerator(), is(e));
         assertThat("the denominator should be " + String.valueOf(f), value.denominator(), is(f));
     }
-    public void testTimes() 
+    public void timesErrorTest(int a, int b, int c, int d)
     {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThrows(IllegalArgumentException.class, () -> first.times(second));
+    }
+    public void testTimes() 
+    {   
         timesTest(2,3,2,3,4,9);
+
+        // overflow issues
+        timesErrorTest(1073741830,1,2,1);
     }
 
 

@@ -48,7 +48,13 @@ public class Rational
     public Rational reciprocal() { return new Rational(this.denominator,this.numerator); }
 
     public Rational times(Rational r) {
-        return new Rational(this.numerator * r.numerator, this.denominator * r.denominator);
+        Rational rhs = new Rational(this.numerator,r.denominator);
+        Rational lhs = new Rational(r.numerator,this.denominator);
+        if (Integer.MAX_VALUE / rhs.numerator < lhs.numerator || 
+            Integer.MAX_VALUE / rhs.denominator < lhs.denominator ) {
+            throw new IllegalArgumentException("overflow");
+        }
+        return new Rational(rhs.numerator * lhs.numerator, rhs.denominator * lhs.denominator);
     }
     
 }
