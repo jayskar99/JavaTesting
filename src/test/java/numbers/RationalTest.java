@@ -36,7 +36,6 @@ public class RationalTest
     public void testRational()
     {
         // Given no preconditions
-
         // When I create a default `Rational` value
         Rational value = new Rational();
         // Then the value should have numerator 0
@@ -55,13 +54,17 @@ public class RationalTest
         assertThat("the denominator should be 1", value.denominator(), is(1));
     }
 
-    public void testConstructorBoth()
+    public void constructorBoth(int a, int b, int c, int d)
     {
-        // Given that I have created a Rational value using arguments `2`` and `3`
-        Rational value = new Rational(2, 3);
-        // Then the value should have numerator `2`
-        assertThat("the numerator should be 2", value.numerator(), is(2));
-        // And the value should have denominator `3`
-        assertThat("the denominator should be 3", value.denominator(), is(3));
+        // Given that I have created a Rational value using arguments `a` and `b`
+        Rational value = new Rational(a, b);
+        // Then the value should have numerator `c`
+        assertThat("the numerator should be" + String.valueOf(c), value.numerator(), is(c));
+        // And the value should have denominator `d`
+        assertThat("the denominator should be" + String.valueOf(d), value.denominator(), is(d));
+    }
+    public void testConstructorBoth()
+    {   
+        constructorBoth(2,3,2,3);
     }
 }

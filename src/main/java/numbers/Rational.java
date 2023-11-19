@@ -17,8 +17,7 @@ public class Rational
     }
 
     public Rational(int i) {
-        this.numerator = i;
-        this.denominator = 1;
+        this(i,1);
     }
 
     public Rational(int n, int d) {
