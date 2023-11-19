@@ -72,12 +72,16 @@ public class RationalTest
         assertThrows(IllegalArgumentException.class, () -> new Rational(1, 0));
         constructorBothTest(0,3,0,1);
         constructorBothTest(0,-3,0,1);
+        constructorBothTest(1,1,1,1);
         constructorBothTest(2,3,2,3);
         constructorBothTest(3,2,3,2);
-        constructorBothTest(2,2,2,2);
         constructorBothTest(-2,3,-2,3);
         constructorBothTest(2,-3,-2,3);
         constructorBothTest(-2,-3,2,3);
+
+        // versions with simplification
+        constructorBothTest(2,2,1,1);
+        constructorBothTest(4,6,2,3);
     }
 
 
@@ -98,7 +102,7 @@ public class RationalTest
         constructorRationalTest(0,-3,0,1);
         constructorRationalTest(2,3,2,3);
         constructorRationalTest(3,2,3,2);
-        constructorRationalTest(2,2,2,2);
+        constructorRationalTest(2,2,1,1);
         constructorRationalTest(-2,3,-2,3);
         constructorRationalTest(2,-3,-2,3);
         constructorRationalTest(-2,-3,2,3);

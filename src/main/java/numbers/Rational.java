@@ -17,6 +17,8 @@ public class Rational
 
     public int denominator() { return denominator; }
 
+    // helpers
+    private int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b);}
 
     // constructors
     public Rational() { this(0,1); }
@@ -28,14 +30,15 @@ public class Rational
     public Rational(int n, int d) {
         if (n == 0) {
             d = 1;
+        } else if (d == 0) {
+            throw new IllegalArgumentException("undefined");
         } else if (d < 0) {
             d *= -1;
             n *= -1;
-        } else if (d == 0) {
-            throw new IllegalArgumentException("undefined");
         } 
-        this.numerator = n;
-        this.denominator = d;
+        int gcd = gcd(Math.abs(n),Math.abs(d));
+        this.numerator = n / gcd;
+        this.denominator = d / gcd;
     }
 
 
