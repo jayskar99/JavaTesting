@@ -3,6 +3,8 @@ package numbers;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Unit test for simple Rational.
@@ -33,6 +35,23 @@ public class RationalTest
      */
     public void testRational()
     {
-        assertTrue( true );
+        // Given no preconditions
+
+        // When I create a default `Rational` value
+        Rational value = new Rational();
+        // Then the value should have numerator 0
+        assertThat("the numerator should be 0", value.numerator(), is(0));
+        // And the value should have denominator 1
+        assertThat("the denominator should be 1", value.denominator(), is(1));
+    }
+
+    public void testConstructorInt()
+    {
+        // Given that I have constructed a `Rational` value using the argument `2`
+        Rational value = new Rational(2);
+        // Then the value should have numerator `2`
+        assertThat("the numerator should be 2", value.numerator(), is(2));
+        // And the value should have denominator `1`
+        assertThat("the denominator should be 1", value.denominator(), is(1));
     }
 }
