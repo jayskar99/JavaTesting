@@ -8,24 +8,22 @@ public class Rational
 {   
     // data members
     private int numerator;
+
     private int denominator;
+
 
     // getters
     public int numerator() { return numerator; }
+
     public int denominator() { return denominator; }
 
+
     // constructors
-    public Rational() {
-        this(0,1);
-    }
+    public Rational() { this(0,1); }
 
-    public Rational(int i) {
-        this(i,1);
-    }
+    public Rational(int i) { this(i,1); }
 
-    public Rational(Rational r) {
-        this(r.numerator,r.denominator);
-    }
+    public Rational(Rational r) { this(r.numerator,r.denominator); }
 
     public Rational(int n, int d) {
         if (n == 0) {
@@ -40,9 +38,10 @@ public class Rational
         this.denominator = d;
     }
 
-    // functions
-    public Rational opposite() {
-        return new Rational(this.numerator*-1,this.denominator);
-    }
+
+    // methods
+    public Rational opposite() { return new Rational(this.numerator*-1,this.denominator); }
+
+    public Rational reciprocal() { return new Rational(this.denominator,this.numerator); }
     
 }

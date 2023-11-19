@@ -120,4 +120,17 @@ public class RationalTest
         oppositeTest(-3,2,3,2);
         oppositeTest(0,2,0,1);
     }
+
+    public void reciprocalTest(int a, int b, int c, int d)
+    {
+        Rational original = new Rational(a, b);
+        Rational value = original.reciprocal();
+        assertThat("the numerator should be " + String.valueOf(c), value.numerator(), is(c));
+        assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
+    }
+    public void testReciprocal() 
+    {
+        reciprocalTest(2,3,3,2);
+    }
+
 }
