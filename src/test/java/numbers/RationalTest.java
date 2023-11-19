@@ -175,6 +175,7 @@ public class RationalTest
 
         // would overflow/underflow directly
         timesTest(1073741830,1,3,10,322122549,1);
+        timesTest(-1073741830,1,3,10,-322122549,1);
 
         // overflow/underflow error
         timesErrorTest(1073741830,1,2,1);
