@@ -134,6 +134,8 @@ public class RationalTest
     {
         reciprocalTest(2,3,3,2);
         reciprocalTest(3,2,2,3);
+        reciprocalTest(-2,3,-3,2);
+        reciprocalTest(-3,2,-2,3);
     }
 
 }
