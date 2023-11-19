@@ -115,5 +115,6 @@ public class RationalTest
     public void testOpposite() 
     {
         oppositeTest(2,3,-2,3);
+        oppositeTest(-2,3,2,3);
     }
 }
