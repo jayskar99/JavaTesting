@@ -47,6 +47,13 @@ public class Rational
 
     public Rational reciprocal() { return new Rational(this.denominator,this.numerator); }
 
+    public Rational plus(Rational r) { 
+        int commonDenominator = this.denominator * r.denominator;
+        int rhs = (this.numerator * r.denominator);
+        int lhs = (r.numerator * this.denominator);
+        return new Rational(rhs + lhs,commonDenominator);
+    }
+
     public Rational times(Rational r) {
         Rational rhs = new Rational(this.numerator,r.denominator);
         Rational lhs = new Rational(r.numerator,this.denominator);

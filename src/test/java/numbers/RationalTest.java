@@ -183,4 +183,16 @@ public class RationalTest
     }
 
 
+    public void plusTest(int a, int b, int c, int d, int e, int f)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        Rational value = first.plus(second);
+        assertThat("the numerator should be " + String.valueOf(e), value.numerator(), is(e));
+        assertThat("the denominator should be " + String.valueOf(f), value.denominator(), is(f));
+    }
+    public void testPlus() 
+    {
+        plusTest(0,1,0,1,0,1);
+    }
 }
