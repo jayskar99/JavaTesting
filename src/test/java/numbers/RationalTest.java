@@ -68,5 +68,6 @@ public class RationalTest
         constructorBoth(2,3,2,3);
         constructorBoth(-2,3,-2,3);
         constructorBoth(2,-3,-2,3);
+        constructorBoth(-2,-3,2,3);
     }
 }
