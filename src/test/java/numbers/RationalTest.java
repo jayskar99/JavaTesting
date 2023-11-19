@@ -113,7 +113,9 @@ public class RationalTest
         assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
     }
     public void testOpposite() 
-    {
+    {   
+        oppositeTest(1,1,-1,1);
+        oppositeTest(-1,1,1,1);
         oppositeTest(2,3,-2,3);
         oppositeTest(-2,3,2,3);
         oppositeTest(3,2,-3,2);
@@ -131,6 +133,7 @@ public class RationalTest
     public void testReciprocal() 
     {
         reciprocalTest(2,3,3,2);
+        reciprocalTest(3,2,2,3);
     }
 
 }
