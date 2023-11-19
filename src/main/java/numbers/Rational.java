@@ -21,6 +21,10 @@ public class Rational
     }
 
     public Rational(int n, int d) {
+        if (d < 0) {
+            d *= -1;
+            n *= -1;
+        }
         this.numerator = n;
         this.denominator = d;
     }

@@ -59,12 +59,14 @@ public class RationalTest
         // Given that I have created a Rational value using arguments `a` and `b`
         Rational value = new Rational(a, b);
         // Then the value should have numerator `c`
-        assertThat("the numerator should be" + String.valueOf(c), value.numerator(), is(c));
+        assertThat("the numerator should be " + String.valueOf(c), value.numerator(), is(c));
         // And the value should have denominator `d`
-        assertThat("the denominator should be" + String.valueOf(d), value.denominator(), is(d));
+        assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
     }
     public void testConstructorBoth()
     {   
         constructorBoth(2,3,2,3);
+        constructorBoth(-2,3,-2,3);
+        constructorBoth(2,-3,-2,3);
     }
 }
