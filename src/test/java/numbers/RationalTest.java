@@ -116,5 +116,7 @@ public class RationalTest
     {
         oppositeTest(2,3,-2,3);
         oppositeTest(-2,3,2,3);
+        oppositeTest(3,2,-3,2);
+        oppositeTest(-3,2,3,2);
     }
 }
