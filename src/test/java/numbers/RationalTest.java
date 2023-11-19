@@ -150,4 +150,19 @@ public class RationalTest
         reciprocalTest(-3,2,-2,3);
     }
 
+
+    public void timesTest(int a, int b, int c, int d, int e, int f)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        Rational value = first.times(second);
+        assertThat("the numerator should be " + String.valueOf(e), value.numerator(), is(e));
+        assertThat("the denominator should be " + String.valueOf(f), value.denominator(), is(f));
+    }
+    public void testTimes() 
+    {
+        timesTest(2,3,2,3,4,9);
+    }
+
+
 }

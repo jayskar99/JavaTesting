@@ -46,5 +46,9 @@ public class Rational
     public Rational opposite() { return new Rational(this.numerator*-1,this.denominator); }
 
     public Rational reciprocal() { return new Rational(this.denominator,this.numerator); }
+
+    public Rational times(Rational r) {
+        return new Rational(this.numerator * r.numerator, this.denominator * r.denominator);
+    }
     
 }
