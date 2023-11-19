@@ -10,18 +10,21 @@ public class Rational
     private int numerator;
     private int denominator;
 
+    // getters
+    public int numerator() { return numerator; }
+    public int denominator() { return denominator; }
+
     // constructors
     public Rational() {
-        this.numerator = 0;
-        this.denominator = 1;
+        this(0,1);
     }
 
     public Rational(int i) {
         this(i,1);
     }
 
-    public Rational(Rational original) {
-        this(original.numerator,original.denominator);
+    public Rational(Rational r) {
+        this(r.numerator,r.denominator);
     }
 
     public Rational(int n, int d) {
@@ -37,7 +40,9 @@ public class Rational
         this.denominator = d;
     }
 
-    // getters
-    public int numerator() { return numerator; }
-    public int denominator() { return denominator; }
+    // functions
+    public Rational opposite() {
+        return new Rational(this.numerator*-1,this.denominator);
+    }
+    
 }

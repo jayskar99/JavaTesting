@@ -41,7 +41,7 @@ public class RationalTest
         assertThat("the denominator should be 1", value.denominator(), is(1));
     }
 
-    public void constructorInt(int a, int b)
+    public void ConstructorIntTest(int a, int b)
     {
         // Given that I have constructed a `Rational` value using the argument `a`
         Rational value = new Rational(a);
@@ -52,13 +52,13 @@ public class RationalTest
     }
     public void testConstructorInt()
     {
-        constructorInt(2,2);
-        constructorInt(-2,-2);
-        constructorInt(0,0);
+        ConstructorIntTest(2,2);
+        ConstructorIntTest(-2,-2);
+        ConstructorIntTest(0,0);
     }
 
 
-    public void constructorBoth(int a, int b, int c, int d)
+    public void constructorBothTest(int a, int b, int c, int d)
     {
         // Given that I have created a Rational value using arguments `a` and `b`
         Rational value = new Rational(a, b);
@@ -67,21 +67,21 @@ public class RationalTest
         // And the value should have denominator `d`
         assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
     }
-    public void testConstructorBoth()
+    public void testconstructorBoth()
     {   
         assertThrows(IllegalArgumentException.class, () -> new Rational(1, 0));
-        constructorBoth(0,3,0,1);
-        constructorBoth(0,-3,0,1);
-        constructorBoth(2,3,2,3);
-        constructorBoth(3,2,3,2);
-        constructorBoth(2,2,2,2);
-        constructorBoth(-2,3,-2,3);
-        constructorBoth(2,-3,-2,3);
-        constructorBoth(-2,-3,2,3);
+        constructorBothTest(0,3,0,1);
+        constructorBothTest(0,-3,0,1);
+        constructorBothTest(2,3,2,3);
+        constructorBothTest(3,2,3,2);
+        constructorBothTest(2,2,2,2);
+        constructorBothTest(-2,3,-2,3);
+        constructorBothTest(2,-3,-2,3);
+        constructorBothTest(-2,-3,2,3);
     }
 
 
-    public void constructorRational(int a, int b, int c, int d)
+    public void constructorRationalTest(int a, int b, int c, int d)
     {
         // Given that I have created the `Rational` value `a/b`
         Rational original = new Rational(a, b);
@@ -92,15 +92,28 @@ public class RationalTest
         // And the value should have denominator `d`
         assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
     }
-    public void testConstructorRational()
+    public void testconstructorRational()
     {   
-        constructorBoth(0,3,0,1);
-        constructorBoth(0,-3,0,1);
-        constructorRational(2,3,2,3);
-        constructorRational(3,2,3,2);
-        constructorRational(2,2,2,2);
-        constructorRational(-2,3,-2,3);
-        constructorRational(2,-3,-2,3);
-        constructorRational(-2,-3,2,3);
+        constructorRationalTest(0,3,0,1);
+        constructorRationalTest(0,-3,0,1);
+        constructorRationalTest(2,3,2,3);
+        constructorRationalTest(3,2,3,2);
+        constructorRationalTest(2,2,2,2);
+        constructorRationalTest(-2,3,-2,3);
+        constructorRationalTest(2,-3,-2,3);
+        constructorRationalTest(-2,-3,2,3);
+    }
+
+
+    public void oppositeTest(int a, int b, int c, int d)
+    {
+        Rational original = new Rational(a, b);
+        Rational value = original.opposite();
+        assertThat("the numerator should be " + String.valueOf(c), value.numerator(), is(c));
+        assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
+    }
+    public void testOpposite() 
+    {
+        oppositeTest(2,3,-2,3);
     }
 }
