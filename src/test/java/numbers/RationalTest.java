@@ -94,6 +94,8 @@ public class RationalTest
     }
     public void testConstructorRational()
     {   
+        constructorBoth(0,3,0,1);
+        constructorBoth(0,-3,0,1);
         constructorRational(2,3,2,3);
         constructorRational(3,2,3,2);
         constructorRational(2,2,2,2);
