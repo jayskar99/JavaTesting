@@ -194,5 +194,8 @@ public class RationalTest
     public void testPlus() 
     {
         plusTest(0,1,0,1,0,1);
+        plusTest(2,3,2,3,4,3);
+        plusTest(-2,3,2,3,0,1);
+        plusTest(-2,3,1,1,1,3);
     }
 }
