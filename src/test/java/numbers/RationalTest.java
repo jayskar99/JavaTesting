@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThrows;
 
 /**
  * Unit test for simple Rational.
@@ -65,6 +66,7 @@ public class RationalTest
     }
     public void testConstructorBoth()
     {   
+        assertThrows(IllegalArgumentException.class, () -> new Rational(1, 0));
         constructorBoth(2,3,2,3);
         constructorBoth(-2,3,-2,3);
         constructorBoth(2,-3,-2,3);

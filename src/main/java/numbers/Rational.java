@@ -24,6 +24,8 @@ public class Rational
         if (d < 0) {
             d *= -1;
             n *= -1;
+        } else if (d == 0) {
+            throw new IllegalArgumentException("undefined");
         }
         this.numerator = n;
         this.denominator = d;
