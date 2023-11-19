@@ -6,9 +6,11 @@ package numbers;
  */
 public class Rational 
 {   
+    // data members
     private int numerator;
     private int denominator;
 
+    // constructors
     public Rational() {
         this.numerator = 0;
         this.denominator = 1;
@@ -24,12 +26,7 @@ public class Rational
         this.denominator = d;
     }
 
+    // getters
     public int numerator() { return numerator; }
-
     public int denominator() { return denominator; }
-
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
 }
