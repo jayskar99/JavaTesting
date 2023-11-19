@@ -20,6 +20,10 @@ public class Rational
         this(i,1);
     }
 
+    public Rational(Rational original) {
+        this(original.numerator,original.denominator);
+    }
+
     public Rational(int n, int d) {
         if (d < 0) {
             d *= -1;

@@ -74,4 +74,25 @@ public class RationalTest
         constructorBoth(2,-3,-2,3);
         constructorBoth(-2,-3,2,3);
     }
+
+    public void constructorRational(int a, int b, int c, int d)
+    {
+        // Given that I have created the `Rational` value `a/b`
+        Rational original = new Rational(a, b);
+        // When I create a `Rational` value as a copy of the original `Rational` value
+        Rational value = new Rational(original);
+        // Then the value should have numerator `c`
+        assertThat("the numerator should be " + String.valueOf(c), value.numerator(), is(c));
+        // And the value should have denominator `d`
+        assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
+    }
+    public void testConstructorRational()
+    {   
+        constructorRational(2,3,2,3);
+        constructorRational(3,2,3,2);
+        constructorRational(2,2,2,2);
+        constructorRational(-2,3,-2,3);
+        constructorRational(2,-3,-2,3);
+        constructorRational(-2,-3,2,3);
+    }
 }
