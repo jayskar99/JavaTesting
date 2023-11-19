@@ -25,12 +25,14 @@ public class Rational
     }
 
     public Rational(int n, int d) {
-        if (d < 0) {
+        if (n == 0) {
+            d = 1;
+        } else if (d < 0) {
             d *= -1;
             n *= -1;
         } else if (d == 0) {
             throw new IllegalArgumentException("undefined");
-        }
+        } 
         this.numerator = n;
         this.denominator = d;
     }
