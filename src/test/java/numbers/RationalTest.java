@@ -179,6 +179,7 @@ public class RationalTest
 
         // overflow/underflow error
         timesErrorTest(1073741830,1,2,1);
+        timesErrorTest(-1073741830,1,2,1);
     }
 
 
