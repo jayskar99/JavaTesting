@@ -136,8 +136,18 @@ public class Rational extends Number implements Comparable<Rational>
 
     // operators
     public boolean equals(Object o) { 
-        Rational r = toRational(o);
-        return (this.numerator == r.numerator) && (this.denominator == r.denominator);
+        if (o instanceof Integer) {
+            return this.intValue() == (int) o;
+        } else if (o instanceof Double) {
+            return this.doubleValue() == (double) o;
+        } else if (o instanceof Long) {
+            return this.longValue() == (long) o;
+        } else if (o instanceof Float) {
+            return this.floatValue() == (float) o;
+        } else {
+            Rational r = new Rational((Rational) o);
+            return (this.numerator == r.numerator) && (this.denominator == r.denominator);
+        }
     }
 
     public boolean greaterThan(Rational r) {
