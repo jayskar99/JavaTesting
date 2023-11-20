@@ -231,5 +231,17 @@ public class RationalTest
     public void testMinus() 
     {
         minusTest(1,1,1,1,0,1);
+        minusTest(0,1,0,1,0,1);
+        minusTest(2,3,-2,3,4,3);
+        minusTest(-2,3,-2,3,0,1);
+        minusTest(-2,3,-1,1,1,3);
+
+        // would overflow 
+        minusTest(715827883,2,-3,4,1431655769,4);
+        minusTest(-715827883,2,3,4,-1431655769,4);
+
+        // overflow/underflow error
+        minusErrorTest(1073741830,1,-1073741900,1);
+        minusErrorTest(-1073741830,1,1073741900,1);
     }
 }
