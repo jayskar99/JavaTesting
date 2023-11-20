@@ -93,10 +93,12 @@ public class Rational
             return new Rational(1);
         }
         int num = 1;
+        int den = 1;
         for (int i=0; i<n; ++i) {
             num *= this.numerator;
+            den *= this.denominator;
         }
-        return new Rational(num,this.denominator);
+        return new Rational(num,den);
     }
     
 }
