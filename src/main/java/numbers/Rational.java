@@ -146,4 +146,6 @@ public class Rational
 
     public boolean isOne() { return this.numerator == 1; }
 
+    public boolean isMinusOne() { return this.numerator == -1; }
+
 }

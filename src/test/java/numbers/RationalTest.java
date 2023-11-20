@@ -379,7 +379,7 @@ public class RationalTest
     public void lessThanNumberTest(int a, int b, Number c, boolean e)
     {
         Rational first = new Rational(a, b);
-        assertThat("less", first.lessThan(c), is(e));
+        assertThat("less?", first.lessThan(c), is(e));
     }
     public void testLessThan()
     {
@@ -397,7 +397,7 @@ public class RationalTest
     public void isZeroTest(int a, int b, boolean c) 
     {
         Rational value = new Rational(a,b);
-        assertThat("zero", value.isZero(), is(c));
+        assertThat("zero?", value.isZero(), is(c));
     }
     public void testIsZero()
     {
@@ -408,11 +408,22 @@ public class RationalTest
     public void isOneTest(int a, int b, boolean c) 
     {
         Rational value = new Rational(a,b);
-        assertThat("one", value.isOne(), is(c));
+        assertThat("one?", value.isOne(), is(c));
     }
     public void testIsOne()
     {
         isOneTest(0,1,false);
         isOneTest(1,1,true);
+    }
+
+    public void isMinusOneTest(int a, int b, boolean c) 
+    {
+        Rational value = new Rational(a,b);
+        assertThat("minus one?", value.isMinusOne(), is(c));
+    }
+    public void testIsMinusOne()
+    {
+        isMinusOneTest(0,1,false);
+        isMinusOneTest(-1,1,true);
     }
 }
