@@ -442,6 +442,9 @@ public class RationalTest
         lessThanRationalTest(1,1,2,1,true);
         lessThanRationalTest(1,2,1,1,true);
         lessThanRationalTest(1,1,1,1,false);
+        lessThanRationalTest(-1,1,-1,2,true);
+        lessThanRationalTest(-1,1,1,2,true);
+        lessThanRationalTest(-1,1,-2,1,false);
 
         lessThanNumberTest(6,5,1,false);
         lessThanNumberTest(1,2,1,true);
