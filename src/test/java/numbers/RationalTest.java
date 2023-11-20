@@ -461,8 +461,10 @@ public class RationalTest
         lessThanNumberTest(1,1,1,false);
         lessThanNumberTest(6,5,(double)1.125,false);
         lessThanNumberTest(1,2,(double)0.75,true);
+        lessThanNumberTest(0,1,(double) 0.00000000000000001, false);
         lessThanNumberTest(6,5,(float)1.125,false);
         lessThanNumberTest(1,2,(float)0.75,true);
+        lessThanNumberTest(0,1,(float) 0.00000000000000001, false);
         lessThanNumberTest(6,5,(long)1,false);
         lessThanNumberTest(1,2,(long)1,true);
     }

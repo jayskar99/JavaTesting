@@ -156,11 +156,11 @@ public class Rational extends Number implements Comparable<Rational>
         if (n instanceof Integer) {
             return this.doubleValue() > n.doubleValue();
         } else if (n instanceof Double) {
-            return (this.doubleValue() > (double) n) && !this.equals(n);
+            return (this.doubleValue() > (double) n) && !this.equals((double) n);
         } else if (n instanceof Long) {
             return this.doubleValue() > n.doubleValue();
         } else {
-            return (this.floatValue() > (float) n) && !this.equals(n);
+            return (this.floatValue() > (float) n) && !this.equals((float) n);
         }
     }
 
@@ -170,18 +170,18 @@ public class Rational extends Number implements Comparable<Rational>
         if (n instanceof Integer) {
             return this.doubleValue() < n.doubleValue();
         } else if (n instanceof Double) {
-            return this.doubleValue() < (double) n;
+            return (this.doubleValue() < (double) n)  && !this.equals((double) n);
         } else if (n instanceof Long) {
             return this.doubleValue() < n.doubleValue();
         } else {
-            return this.floatValue() < (float) n;
+            return (this.floatValue() < (float) n) && !(this.equals((float) n));
         }
     }
 
     public int compareTo(Rational r) {
+        if (this.equals(r)) return 0;
         if (this.lessThan(r)) return -1;
-        if (this.greaterThan(r)) return 1;
-        return 0;
+        return 1;
     }
 
     public boolean isZero() { return this.numerator == 0; }
