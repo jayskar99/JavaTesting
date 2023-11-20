@@ -393,4 +393,14 @@ public class RationalTest
         lessThanNumberTest(1,2,1,true);
         lessThanNumberTest(1,1,1,false);
     }
+
+    public void isZeroTest(int a, int b, boolean c) 
+    {
+        Rational value = new Rational(a,b);
+        assertThat("zero", value.isZero(), is(c));
+    }
+    public void testIsZero()
+    {
+        isZeroTest(0,1,true);
+    }
 }

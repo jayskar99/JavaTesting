@@ -141,4 +141,7 @@ public class Rational
     }
 
     public boolean lessThan(Object o) { return !(this.greaterThan(o)) && !(this.equals(o)); }
+
+    public boolean isZero() { return this.numerator == 0; }
+
 }
