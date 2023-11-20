@@ -202,7 +202,11 @@ public class RationalTest
     }
     public void testDividedBy() 
     {   
+        dividedByTest(0,1,1,1,0,1);
         dividedByTest(1,1,1,1,1,1);
+        dividedByTest(2,3,2,3,1,1);
+        dividedByTest(-2,3,2,3,-1,1);
+        dividedByTest(-2,-3,2,3,1,1);
     }
 
 
