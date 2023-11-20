@@ -208,7 +208,9 @@ public class RationalTest
         dividedByTest(-2,3,2,3,-1,1);
         dividedByTest(-2,-3,2,3,1,1);
 
-        
+        // would overflow/underflow directly
+        dividedByTest(1073741830,1,10,3,322122549,1);
+        dividedByTest(-1073741830,1,10,3,-322122549,1);
 
         // overflow/underflow error
         dividedByErrorTest(1073741830,1,1,1073741830); // + +
