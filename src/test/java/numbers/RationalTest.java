@@ -392,6 +392,7 @@ public class RationalTest
         equalsNumberTest(1,1,(float)1.0,true);
         equalsNumberTest(1,1,(float)2.0,false);
         equalsNumberTest(1,3,(float) 0.3333333333333333, true);
+        equalsNumberTest(1,3,(float) 0.333333333333333333333333333333333333, true);
     }
 
     public void greaterThanRationalTest(int a, int b, int c, int d, boolean e)

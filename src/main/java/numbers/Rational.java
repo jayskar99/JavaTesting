@@ -127,7 +127,11 @@ public class Rational extends Number implements Comparable<Rational>
         } else if (o instanceof Long) {
             return this.longValue() == (long) o;
         } else if (o instanceof Float) {
-            return this.floatValue() == (float) o;
+            float lhs = this.floatValue();
+            float rhs = (float) o;
+            float diff = Math.abs(lhs-rhs);
+            float largest = lhs > rhs ? lhs : rhs;
+            return  diff <= largest * 0.00001;
         } else {
             Rational r = new Rational((Rational) o);
             return (this.numerator == r.numerator) && (this.denominator == r.denominator);
