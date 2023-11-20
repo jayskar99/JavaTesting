@@ -45,7 +45,12 @@ public class Rational
 
 
     // methods
-    public Rational opposite() { return new Rational(this.numerator*-1,this.denominator); }
+    public Rational opposite() { 
+        if (this.numerator == Integer.MIN_VALUE || this.denominator == Integer.MIN_VALUE) {
+            throw new IllegalArgumentException("overflow");
+        }
+        return new Rational(this.numerator*-1,this.denominator); 
+    }
 
     public Rational reciprocal() { return new Rational(this.denominator,this.numerator); }
 

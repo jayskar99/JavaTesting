@@ -120,6 +120,11 @@ public class RationalTest
         assertThat("the numerator should be " + String.valueOf(c), value.numerator(), is(c));
         assertThat("the denominator should be " + String.valueOf(d), value.denominator(), is(d));
     }
+    public void oppositeErrorTest(int a, int b) 
+    {
+        Rational original = new Rational(a, b);
+        assertThrows(IllegalArgumentException.class, () -> original.opposite());
+    }
     public void testOpposite() 
     {   
         oppositeTest(1,1,-1,1);
@@ -129,6 +134,9 @@ public class RationalTest
         oppositeTest(3,2,-3,2);
         oppositeTest(-3,2,3,2);
         oppositeTest(0,2,0,1);
+
+        // overflow
+        oppositeErrorTest(Integer.MIN_VALUE,1);
     }
 
     public void reciprocalTest(int a, int b, int c, int d)
