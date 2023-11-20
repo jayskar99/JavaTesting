@@ -99,7 +99,10 @@ public class Rational
         for (int i=0; i<n; ++i) {
             if (((this.numerator > 0) && Integer.MAX_VALUE / this.numerator < num) ||
                 ((this.numerator < 0) && Integer.MAX_VALUE / Math.abs(this.numerator) < Math.abs(num))) {
-                throw new IllegalArgumentException("overflow");
+                throw new IllegalArgumentException("overflow in numerator");
+            } else if (((this.denominator > 0) && Integer.MAX_VALUE / this.denominator < den) ||
+                        ((this.denominator < 0) && Integer.MAX_VALUE / Math.abs(this.denominator) < Math.abs(den))) {
+                throw new IllegalArgumentException("overflow in denominator");
             }
             num *= this.numerator;
             den *= this.denominator;

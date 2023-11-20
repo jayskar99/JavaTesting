@@ -317,5 +317,7 @@ public class RationalTest
         raisedToThePowerOfErrorTest(5,1,14);
         raisedToThePowerOfErrorTest(-6,1,13);
         raisedToThePowerOfErrorTest(-6,1,0);
+        raisedToThePowerOfErrorTest(1,5,14);
+        raisedToThePowerOfErrorTest(1,-6,13);
     }
 }
