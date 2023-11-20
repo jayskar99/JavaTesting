@@ -137,6 +137,7 @@ public class RationalTest
 
         // overflow
         oppositeErrorTest(Integer.MIN_VALUE,1);
+        oppositeErrorTest(1,Integer.MIN_VALUE);
     }
 
     public void reciprocalTest(int a, int b, int c, int d)
