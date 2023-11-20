@@ -349,7 +349,7 @@ public class RationalTest
     {
         Rational first = new Rational(a, b);
         Rational second = new Rational(c, d);
-        assertThat("greater?", first.greaterThan(second), is(e));
+        assertThat("greater?", first.greaterThan((Rational) second), is(e));
     }
     public void greaterThanNumberTest(int a, int b, Number c, boolean e)
     {

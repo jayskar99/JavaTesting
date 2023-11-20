@@ -128,8 +128,7 @@ public class Rational
         return (this.numerator == r.numerator) && (this.denominator == r.denominator);
     }
 
-    public boolean greaterThan(Object o) {
-        Rational r = toRational(o);
+    public boolean greaterThan(Rational r) {
         if (this.denominator == r.denominator) {
             return this.numerator > r.numerator;
         } else {
@@ -140,7 +139,11 @@ public class Rational
         }
     }
 
-    public boolean lessThan(Object o) { return !(this.greaterThan(o)) && !(this.equals(o)); }
+    public boolean greaterThan(Number n) { return greaterThan(toRational(n)); }
+
+    public boolean lessThan(Rational r) { return !(this.greaterThan(r)) && !(this.equals(r)); }
+
+    public boolean lessThan(Number n) { return lessThan(toRational(n)); }
 
     public boolean isZero() { return this.numerator == 0; }
 
