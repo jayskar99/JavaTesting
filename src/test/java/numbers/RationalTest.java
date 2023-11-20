@@ -320,4 +320,16 @@ public class RationalTest
         raisedToThePowerOfErrorTest(-6,1,13);
         raisedToThePowerOfErrorTest(1,5,14);
     }
+
+
+    public void equalsRationalTest(int a, int b, int c, int d, boolean e)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThat("equals?", first.equals(second), is(e));
+    }
+    public void testEquals()
+    {
+        equalsRationalTest(1,2,1,2,true);
+    }
 }

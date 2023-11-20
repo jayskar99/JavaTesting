@@ -109,4 +109,10 @@ public class Rational
         return new Rational(num,den);
     }
     
+
+    // operators
+    public boolean equals(Object o) { 
+        Rational r = (Rational) o;
+        return (this.numerator == r.numerator) && (this.denominator == r.denominator);
+    }
 }
