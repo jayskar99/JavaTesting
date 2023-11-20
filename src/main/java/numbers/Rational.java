@@ -4,7 +4,7 @@ package numbers;
  * Hello world!
  *
  */
-public class Rational 
+public class Rational extends Number
 {   
     // data members
     private int numerator;
