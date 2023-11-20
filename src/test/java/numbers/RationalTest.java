@@ -206,5 +206,6 @@ public class RationalTest
 
         // overflow
         plusErrorTest(1073741830,1,1073741900,1);
+        plusErrorTest(-1073741830,1,-1073741900,1);
     }
 }
