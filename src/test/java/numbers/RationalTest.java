@@ -204,7 +204,10 @@ public class RationalTest
         plusTest(-2,3,2,3,0,1);
         plusTest(-2,3,1,1,1,3);
 
-        // overflow
+        // would overflow 
+        plusTest(715827883,2,3,4,1431655769,4);
+
+        // overflow/underflow error
         plusErrorTest(1073741830,1,1073741900,1);
         plusErrorTest(-1073741830,1,-1073741900,1);
     }

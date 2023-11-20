@@ -20,6 +20,8 @@ public class Rational
     // helpers
     private int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b);}
 
+    private int lcd(int a, int b) { return (a * b) / gcd(a,b); }
+
     // constructors
     public Rational() { this(0,1); }
 
@@ -48,14 +50,14 @@ public class Rational
     public Rational reciprocal() { return new Rational(this.denominator,this.numerator); }
 
     public Rational plus(Rational r) { 
-        int commonDenominator = this.denominator * r.denominator;
-        int rhs = (this.numerator * r.denominator);
-        int lhs = (r.numerator * this.denominator);
+        int lcd = lcd(this.denominator,r.denominator);
+        int rhs = this.numerator * (lcd / this.denominator);
+        int lhs = r.numerator * (lcd / r.denominator);
         if (((rhs > 0 && lhs > 0) || (rhs < 0 && lhs < 0)) && 
             Integer.MAX_VALUE - Math.abs(rhs) < Math.abs(lhs)) {
             throw new IllegalArgumentException("overflow in numerator");
         }
-        return new Rational(rhs + lhs,commonDenominator);
+        return new Rational(rhs + lhs,lcd);
     }
 
     public Rational times(Rational r) {
