@@ -331,5 +331,6 @@ public class RationalTest
     public void testEquals()
     {
         equalsRationalTest(1,2,1,2,true);
+        equalsRationalTest(1,2,2,1,false);
     }
 }
