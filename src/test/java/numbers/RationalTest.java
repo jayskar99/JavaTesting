@@ -387,13 +387,18 @@ public class RationalTest
         equalsNumberTest(1,1,2,false);
         equalsNumberTest(1,1,1.0,true);
         equalsNumberTest(1,1,2.0,false);
+        equalsNumberTest(1,1,57.0,false);
+        equalsNumberTest(57,1,1.0,false);
         equalsNumberTest(1,1,(long)1,true);
         equalsNumberTest(1,1,(long)2,false);
         equalsNumberTest(1,1,(float)1.0,true);
         equalsNumberTest(1,1,(float)2.0,false);
         equalsNumberTest(1,3,(float) 0.3333333333333333, true);
         equalsNumberTest(1,3,(float) 0.333333333333333333333333333333333333, true);
-        equalsNumberTest(1,3,(float) 0.333333333333333331111111111111111111, false);
+        equalsNumberTest(1,3,(float) 57, false);
+        equalsNumberTest(57,1,(float) 1, false);
+        equalsNumberTest(0,1,(float) .00000000000000001, true);
+
     }
 
     public void greaterThanRationalTest(int a, int b, int c, int d, boolean e)
@@ -420,10 +425,12 @@ public class RationalTest
         greaterThanNumberTest(1,1,1,false);
         greaterThanNumberTest(6,5,(double)1.125,true);
         greaterThanNumberTest(1,2,(double)0.75,false);
+        greaterThanNumberTest(0,1,(double) -0.00000000000000001, false);
         greaterThanNumberTest(6,5,(float)1.125,true);
         greaterThanNumberTest(1,2,(float)0.75,false);
         greaterThanNumberTest(6,5,(long)1,true);
         greaterThanNumberTest(1,2,(long)1,false);
+        greaterThanNumberTest(0,1,(float) -0.00000000000000001, false);
     }
 
 
@@ -516,7 +523,9 @@ public class RationalTest
         toStringTest(0,1,"0");
         toStringTest(1,-1,"-1");
         toStringTest(2,3,"2/3");
-        toStringTest(3,2,"3/2");
+        toStringTest(3,2,"1 1/2");
         toStringTest(-2,3,"-2/3");
+        toStringTest(7,3,"2 1/3");
+        toStringTest(-7,3,"-2 1/3");
     }
 }

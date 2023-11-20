@@ -127,16 +127,14 @@ public class Rational extends Number implements Comparable<Rational>
             double lhs = this.doubleValue();
             double rhs = (double) o;
             double diff = Math.abs(lhs-rhs);
-            double largest = lhs > rhs ? lhs : rhs;
-            return  diff <= Math.ulp(largest);
+            return  diff <= .00000000000001;
         } else if (o instanceof Long) {
             return this.longValue() == (long) o;
         } else if (o instanceof Float) {
             float lhs = this.floatValue();
             float rhs = (float) o;
             float diff = Math.abs(lhs-rhs);
-            float largest = lhs > rhs ? lhs : rhs;
-            return  diff <= Math.ulp(largest);
+            return  diff <= .0000001;
         } else {
             Rational r = new Rational((Rational) o);
             return (this.numerator == r.numerator) && (this.denominator == r.denominator);
@@ -158,11 +156,11 @@ public class Rational extends Number implements Comparable<Rational>
         if (n instanceof Integer) {
             return this.doubleValue() > n.doubleValue();
         } else if (n instanceof Double) {
-            return this.doubleValue() > (double) n;
+            return (this.doubleValue() > (double) n) && !this.equals(n);
         } else if (n instanceof Long) {
             return this.doubleValue() > n.doubleValue();
         } else {
-            return this.floatValue() > (float) n;
+            return (this.floatValue() > (float) n) && !this.equals(n);
         }
     }
 
@@ -194,7 +192,14 @@ public class Rational extends Number implements Comparable<Rational>
 
     // return
     public String toString() {
-        if (this.denominator == 1) return Integer.toString(this.numerator);
-        else return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+        if (this.denominator == 1) {
+            return Integer.toString(this.numerator);
+        } else if (this.numerator / this.denominator != 0) {
+            return Integer.toString(this.numerator / this.denominator) + " " + 
+                    Integer.toString(Math.abs(this.numerator % this.denominator)) + "/" + Integer.toString(this.denominator);
+        }
+        else {
+            return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
+        }
     }
 }
