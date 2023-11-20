@@ -178,8 +178,31 @@ public class RationalTest
         timesTest(-1073741830,1,3,10,-322122549,1);
 
         // overflow/underflow error
-        timesErrorTest(1073741830,1,2,1);
-        timesErrorTest(-1073741830,1,2,1);
+        timesErrorTest(1073741830,1,2,1); // + +
+        timesErrorTest(-1073741830,1,-2,1); // - -
+        timesErrorTest(-1073741830,1,2,1); // - +
+        timesErrorTest(1073741830,1,-2,1); // + -
+        timesErrorTest(1,1073741830,1,2); // denom
+    }
+
+
+    public void dividedByTest(int a, int b, int c, int d, int e, int f)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        Rational value = first.dividedBy(second);
+        assertThat("the numerator should be " + String.valueOf(e), value.numerator(), is(e));
+        assertThat("the denominator should be " + String.valueOf(f), value.denominator(), is(f));
+    }
+    public void dividedByErrorTest(int a, int b, int c, int d)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThrows(IllegalArgumentException.class, () -> first.dividedBy(second));
+    }
+    public void testDividedBy() 
+    {   
+        dividedByTest(1,1,1,1,1,1);
     }
 
 

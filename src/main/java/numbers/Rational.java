@@ -76,5 +76,9 @@ public class Rational
         }
         return new Rational(rhs.numerator * lhs.numerator, rhs.denominator * lhs.denominator);
     }
+
+    public Rational dividedBy(Rational r) {
+        return this.times(r.reciprocal());
+    }
     
 }
