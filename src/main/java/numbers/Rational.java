@@ -95,6 +95,9 @@ public class Rational
         int num = 1;
         int den = 1;
         for (int i=0; i<n; ++i) {
+            if (Integer.MAX_VALUE / this.numerator < num) {
+                throw new IllegalArgumentException("overflow");
+            }
             num *= this.numerator;
             den *= this.denominator;
         }
