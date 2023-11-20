@@ -308,5 +308,7 @@ public class RationalTest
     public void testRaisedToThePowerOf()
     {
         raisedToThePowerOfTest(1,1,0,1,1);
+        raisedToThePowerOfTest(1,1,2,1,1);
+        raisedToThePowerOfTest(2,1,2,4,1);
     }
 }

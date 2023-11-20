@@ -17,10 +17,12 @@ public class Rational
 
     public int denominator() { return denominator; }
 
+
     // helpers
-    private int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b);}
+    private int gcd(int a, int b) { return b == 0 ? a : gcd(b, a % b); }
 
     private int lcd(int a, int b) { return (a * b) / gcd(a,b); }
+
 
     // constructors
     public Rational() { this(0,1); }
@@ -90,7 +92,11 @@ public class Rational
         if (n == 0) {
             return new Rational(1);
         }
-        return new Rational(1);
+        int num = 1;
+        for (int i=0; i<n; ++i) {
+            num *= this.numerator;
+        }
+        return new Rational(num,this.denominator);
     }
     
 }
