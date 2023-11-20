@@ -113,6 +113,49 @@ public class RationalTest
     }
 
 
+    public void doubleTest(int a, int b, double c)
+    {
+        Rational value = new Rational(a, b);
+        assertThat("should be" + String.valueOf(c), value.doubleValue(), is(c));
+    }
+    public void floatTest(int a, int b, float c)
+    {
+        Rational value = new Rational(a, b);
+        assertThat("should be" + String.valueOf(c), value.floatValue(), is(c));
+    }
+    public void longTest(int a, int b, long c)
+    {
+        Rational value = new Rational(a, b);
+        assertThat("should be" + String.valueOf(c), value.longValue(), is(c));
+    }
+    public void intTest(int a, int b, int c)
+    {
+        Rational value = new Rational(a, b);
+        assertThat("should be" + String.valueOf(c), value.intValue(), is(c));
+    }
+    public void testCasts()
+    {
+        doubleTest(0,1,0.0);
+        doubleTest(1,1,1.0);
+        doubleTest(1,2,0.5);
+        doubleTest(-1,2,-0.5);
+        
+        floatTest(0,1,(float) 0.0);
+        floatTest(1,1,(float) 1.0);
+        floatTest(1,2,(float) 0.5);
+        floatTest(-1,2,(float) -0.5);
+
+        longTest(0,1,(long) 0);
+        longTest(1,1,(long) 1);
+        longTest(2,1,(long) 2);
+        longTest(-2,1,(long) -2);
+
+        intTest(0,1,(int) 0);
+        intTest(1,1,(int) 1);
+        intTest(2,1,(int) 2);
+        intTest(-2,1,(int) -2);
+    }
+
     public void oppositeTest(int a, int b, int c, int d)
     {
         Rational original = new Rational(a, b);

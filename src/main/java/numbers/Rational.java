@@ -4,7 +4,7 @@ package numbers;
  * Hello world!
  *
  */
-public class Rational implements Comparable<Rational>
+public class Rational extends Number implements Comparable<Rational>
 {   
     // data members
     private int numerator;
@@ -16,6 +16,14 @@ public class Rational implements Comparable<Rational>
     public int numerator() { return numerator; }
 
     public int denominator() { return denominator; }
+
+    public double doubleValue() { return (double) this.numerator / (double) this.denominator; }
+
+    public float floatValue() { return (float) this.numerator / (float) this.denominator; }
+
+    public long longValue() { return (long) this.numerator / (long) this.denominator; }
+
+    public int intValue() { return (int) this.numerator / (int) this.denominator; }
 
 
     // helpers
@@ -58,7 +66,7 @@ public class Rational implements Comparable<Rational>
     }
 
 
-    // arithmatic
+    // arithmetic
     public Rational opposite() { 
         if (this.numerator == Integer.MIN_VALUE || this.denominator == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("overflow");
