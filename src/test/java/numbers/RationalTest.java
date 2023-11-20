@@ -291,4 +291,22 @@ public class RationalTest
         minusErrorTest(1073741830,1,-1073741900,1);
         minusErrorTest(-1073741830,1,1073741900,1);
     }
+
+
+    public void raisedToThePowerOfTest(int a, int b, int c, int d, int e) 
+    {
+        Rational original = new Rational(a,b);
+        Rational value = original.raisedToThePowerOf(c);
+        assertThat("the numerator should be " + String.valueOf(d), value.numerator(), is(d));
+        assertThat("the denominator should be " + String.valueOf(e), value.denominator(), is(e));
+    }
+    public void raisedToThePowerOfErrorTest(int a, int b, int c)
+    {
+        Rational original = new Rational(a,b);
+        assertThrows(IllegalArgumentException.class, () -> original.raisedToThePowerOf(c));
+    }
+    public void testRaisedToThePowerOf()
+    {
+        raisedToThePowerOfTest(1,1,0,1,1);
+    }
 }

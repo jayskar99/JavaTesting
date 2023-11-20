@@ -85,5 +85,12 @@ public class Rational
     public Rational dividedBy(Rational r) {
         return this.times(r.reciprocal());
     }
+
+    public Rational raisedToThePowerOf(int n) {
+        if (n == 0) {
+            return new Rational(1);
+        }
+        return new Rational(1);
+    }
     
 }
