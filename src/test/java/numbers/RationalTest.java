@@ -212,4 +212,24 @@ public class RationalTest
         plusErrorTest(1073741830,1,1073741900,1);
         plusErrorTest(-1073741830,1,-1073741900,1);
     }
+
+
+    public void minusTest(int a, int b, int c, int d, int e, int f)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        Rational value = first.minus(second);
+        assertThat("the numerator should be " + String.valueOf(e), value.numerator(), is(e));
+        assertThat("the denominator should be " + String.valueOf(f), value.denominator(), is(f));
+    }
+    public void minusErrorTest(int a, int b, int c, int d)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThrows(IllegalArgumentException.class, () -> first.minus(second));
+    }
+    public void testMinus() 
+    {
+        minusTest(1,1,1,1,0,1);
+    }
 }

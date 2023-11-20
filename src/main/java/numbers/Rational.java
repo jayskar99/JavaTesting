@@ -60,6 +60,8 @@ public class Rational
         return new Rational(rhs + lhs,lcd);
     }
 
+    public Rational minus(Rational r) { return this.plus(r.opposite()); }
+
     public Rational times(Rational r) {
         Rational rhs = new Rational(this.numerator,r.denominator);
         Rational lhs = new Rational(r.numerator,this.denominator);
