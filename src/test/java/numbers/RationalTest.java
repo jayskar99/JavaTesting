@@ -526,8 +526,8 @@ public class RationalTest
         toStringTest(1,-1,"-1");
         toStringTest(2,3,"2/3");
         toStringTest(-2,3,"-2/3");
-        // toStringTest(3,2,"1 1/2");
-        // toStringTest(7,3,"2 1/3");
-        // toStringTest(-7,3,"-2 1/3");
+        toStringTest(3,2,"1 1/2");
+        toStringTest(7,3,"2 1/3");
+        toStringTest(-7,3,"-2 1/3");
     }
 }
