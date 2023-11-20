@@ -344,4 +344,23 @@ public class RationalTest
         equalsNumberTest(1,1,1.0,true);
         equalsNumberTest(1,1,2.0,false);
     }
+
+    public void greaterThanRationalTest(int a, int b, int c, int d, boolean e)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThat("greater?", first.greaterThan(second), is(e));
+    }
+    public void greaterThanNumberTest(int a, int b, Number c, boolean e)
+    {
+        Rational first = new Rational(a, b);
+        assertThat("greater?", first.greaterThan(c), is(e));
+    }
+    public void testGreaterThan()
+    {
+        greaterThanRationalTest(1,1,0,1,true);
+        greaterThanRationalTest(1,1,1,2,true);
+        greaterThanRationalTest(1,1,2,1,false);
+        greaterThanRationalTest(1,2,1,1,false);
+    }
 }

@@ -23,6 +23,18 @@ public class Rational
 
     private int lcd(int a, int b) { return (a * b) / gcd(a,b); }
 
+    private Rational toRational(Object o) {
+        Rational r = null;
+        if (o instanceof Integer) {
+            r = new Rational((Integer) o);
+        } else if (o instanceof Double) {
+            r = new Rational(((Double) o).intValue());
+        } else {
+            r = (Rational) o;
+        }
+        return r;
+    }
+
 
     // constructors
     public Rational() { this(0,1); }
@@ -112,14 +124,19 @@ public class Rational
 
     // operators
     public boolean equals(Object o) { 
-        Rational r = null;
-        if (o instanceof Integer) {
-            r = new Rational((Integer) o);
-        } else if (o instanceof Double) {
-            r = new Rational(((Double) o).intValue());
-        } else {
-            r = (Rational) o;
-        }
+        Rational r = toRational(o);
         return (this.numerator == r.numerator) && (this.denominator == r.denominator);
+    }
+
+    public boolean greaterThan(Object o) {
+        Rational r = toRational(o);
+        if (this.denominator == r.denominator) {
+            return this.numerator > r.numerator;
+        } else {
+            int lcd = lcd(this.denominator,r.denominator);
+            int rhs = this.numerator * (lcd / this.denominator);
+            int lhs = r.numerator * (lcd / r.denominator);
+            return rhs > lhs;
+        }
     }
 }
