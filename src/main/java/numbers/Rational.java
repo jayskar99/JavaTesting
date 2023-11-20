@@ -112,7 +112,12 @@ public class Rational
 
     // operators
     public boolean equals(Object o) { 
-        Rational r = (Rational) o;
+        Rational r = null;
+        if (o instanceof Integer) {
+            r = new Rational((Integer) o);
+        } else if (o instanceof Rational) {
+            r = (Rational) o;
+        }
         return (this.numerator == r.numerator) && (this.denominator == r.denominator);
     }
 }
