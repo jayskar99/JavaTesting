@@ -58,7 +58,7 @@ public class Rational
     }
 
 
-    // methods
+    // arithmatic
     public Rational opposite() { 
         if (this.numerator == Integer.MIN_VALUE || this.denominator == Integer.MIN_VALUE) {
             throw new IllegalArgumentException("overflow");
@@ -148,4 +148,8 @@ public class Rational
 
     public boolean isMinusOne() { return this.numerator == -1; }
 
+    // return
+    public String toString() {
+        return Integer.toString(this.numerator);
+    }
 }

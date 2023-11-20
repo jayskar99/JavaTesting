@@ -426,4 +426,14 @@ public class RationalTest
         isMinusOneTest(0,1,false);
         isMinusOneTest(-1,1,true);
     }
+
+    public void toStringTest(int a, int b, String c) 
+    {
+        Rational value = new Rational(a,b);
+        assertThat("printed right?", value.toString(), is(c));
+    }
+    public void testToString()
+    {
+        toStringTest(0,1,"0");
+    }
 }
