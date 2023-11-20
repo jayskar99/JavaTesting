@@ -510,5 +510,7 @@ public class RationalTest
         toStringTest(0,1,"0");
         toStringTest(1,-1,"-1");
         toStringTest(2,3,"2/3");
+        toStringTest(3,2,"3/2");
+        toStringTest(-2,3,"-2/3");
     }
 }
