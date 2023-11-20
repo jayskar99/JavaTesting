@@ -161,7 +161,20 @@ public class Rational extends Number implements Comparable<Rational>
         }
     }
 
-    public boolean greaterThan(Number n) { return greaterThan(toRational(n)); }
+    public boolean greaterThan(Number n) { 
+        if (n instanceof Integer) {
+            return this.doubleValue() > n.doubleValue();
+        } else if (n instanceof Double) {
+            return this.doubleValue() > (double) n;
+        } else if (n instanceof Long) {
+            return this.doubleValue() > n.doubleValue();
+        } else if (n instanceof Float) {
+            return this.floatValue() > (float) n;
+        } else {
+            Rational r = new Rational((Rational) n);
+            return this.greaterThan(r);
+        }
+    }
 
     public boolean lessThan(Rational r) { return !(this.greaterThan(r)) && !(this.equals(r)); }
 

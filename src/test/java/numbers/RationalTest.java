@@ -416,6 +416,11 @@ public class RationalTest
         greaterThanNumberTest(1,2,1,false);
         greaterThanNumberTest(1,1,1,false);
         greaterThanNumberTest(6,5,(double)1.125,true);
+        greaterThanNumberTest(1,2,(double)0.75,false);
+        greaterThanNumberTest(6,5,(float)1.125,true);
+        greaterThanNumberTest(1,2,(float)0.75,false);
+        greaterThanNumberTest(6,5,(long)1,true);
+        greaterThanNumberTest(1,2,(long)1,false);
     }
 
 
