@@ -402,5 +402,6 @@ public class RationalTest
     public void testIsZero()
     {
         isZeroTest(0,1,true);
+        isZeroTest(1,1,false);
     }
 }
