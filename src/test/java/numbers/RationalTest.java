@@ -207,6 +207,15 @@ public class RationalTest
         dividedByTest(2,3,2,3,1,1);
         dividedByTest(-2,3,2,3,-1,1);
         dividedByTest(-2,-3,2,3,1,1);
+
+        
+
+        // overflow/underflow error
+        dividedByErrorTest(1073741830,1,1,1073741830); // + +
+        dividedByErrorTest(-1073741830,1,-1,1073741830); // - -
+        dividedByErrorTest(-1073741830,1,1,1073741830); // - +
+        dividedByErrorTest(1073741830,1,-1,1073741830); // + -
+        dividedByErrorTest(1,1073741830,1073741830,1); // denom
     }
 
 
