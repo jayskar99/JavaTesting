@@ -144,4 +144,6 @@ public class Rational
 
     public boolean isZero() { return this.numerator == 0; }
 
+    public boolean isOne() { return this.numerator == 1; }
+
 }

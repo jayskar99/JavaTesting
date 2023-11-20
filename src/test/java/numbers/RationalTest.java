@@ -404,4 +404,15 @@ public class RationalTest
         isZeroTest(0,1,true);
         isZeroTest(1,1,false);
     }
+
+    public void isOneTest(int a, int b, boolean c) 
+    {
+        Rational value = new Rational(a,b);
+        assertThat("one", value.isOne(), is(c));
+    }
+    public void testIsOne()
+    {
+        isOneTest(0,1,false);
+        isOneTest(1,1,true);
+    }
 }
