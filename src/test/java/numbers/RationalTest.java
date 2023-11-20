@@ -435,5 +435,7 @@ public class RationalTest
     public void testToString()
     {
         toStringTest(0,1,"0");
+        toStringTest(1,-1,"-1");
+        toStringTest(2,3,"2/3");
     }
 }

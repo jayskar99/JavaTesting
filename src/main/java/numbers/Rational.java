@@ -150,6 +150,7 @@ public class Rational
 
     // return
     public String toString() {
-        return Integer.toString(this.numerator);
+        if (this.denominator == 1) return Integer.toString(this.numerator);
+        else return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
     }
 }
