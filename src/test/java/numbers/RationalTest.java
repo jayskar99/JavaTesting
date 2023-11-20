@@ -384,5 +384,13 @@ public class RationalTest
     public void testLessThan()
     {
         lessThanRationalTest(1,1,0,1,false);
+        lessThanRationalTest(1,1,1,2,false);
+        lessThanRationalTest(1,1,2,1,true);
+        lessThanRationalTest(1,2,1,1,true);
+        lessThanRationalTest(1,1,1,1,false);
+
+        lessThanNumberTest(6,5,1,false);
+        lessThanNumberTest(1,2,1,true);
+        lessThanNumberTest(1,1,1,false);
     }
 }
