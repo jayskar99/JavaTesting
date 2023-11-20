@@ -328,7 +328,7 @@ public class RationalTest
         Rational second = new Rational(c, d);
         assertThat("equals?", first.equals(second), is(e));
     }
-    public void equalsNumberTest(int a, int b, int c, boolean e)
+    public void equalsNumberTest(int a, int b, Number c, boolean e)
     {
         Rational first = new Rational(a, b);
         assertThat("equals?", first.equals(c), is(e));
@@ -340,5 +340,8 @@ public class RationalTest
         equalsRationalTest(1,2,1,1,false);
         equalsRationalTest(2,1,1,1,false);
         equalsNumberTest(1,1,1,true);
+        equalsNumberTest(1,1,2,false);
+        equalsNumberTest(1,1,1.0,true);
+        equalsNumberTest(1,1,2.0,false);
     }
 }

@@ -115,7 +115,9 @@ public class Rational
         Rational r = null;
         if (o instanceof Integer) {
             r = new Rational((Integer) o);
-        } else if (o instanceof Rational) {
+        } else if (o instanceof Double) {
+            r = new Rational(((Double) o).intValue());
+        } else {
             r = (Rational) o;
         }
         return (this.numerator == r.numerator) && (this.denominator == r.denominator);
