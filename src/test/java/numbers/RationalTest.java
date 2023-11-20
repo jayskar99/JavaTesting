@@ -394,6 +394,19 @@ public class RationalTest
         lessThanNumberTest(1,1,1,false);
     }
 
+    public void compareToTest(int a, int b, int c, int d, int e)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThat("compare", first.compareTo(second), is(e));
+    }
+    public void testCompareTo()
+    {
+        compareToTest(1,1,-1,1,1);
+        compareToTest(-1,1,1,1,-1);
+        compareToTest(1,1,1,1,0);
+    }
+
     public void isZeroTest(int a, int b, boolean c) 
     {
         Rational value = new Rational(a,b);

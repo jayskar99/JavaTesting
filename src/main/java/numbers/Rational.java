@@ -4,7 +4,7 @@ package numbers;
  * Hello world!
  *
  */
-public class Rational extends Number
+public class Rational implements Comparable<Rational>
 {   
     // data members
     private int numerator;
@@ -144,6 +144,12 @@ public class Rational extends Number
     public boolean lessThan(Rational r) { return !(this.greaterThan(r)) && !(this.equals(r)); }
 
     public boolean lessThan(Number n) { return lessThan(toRational(n)); }
+
+    public int compareTo(Rational r) {
+        if (this.lessThan(r)) return -1;
+        if (this.greaterThan(r)) return 1;
+        return 0;
+    }
 
     public boolean isZero() { return this.numerator == 0; }
 
