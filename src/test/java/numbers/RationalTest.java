@@ -316,5 +316,6 @@ public class RationalTest
         // overflow/underflow
         raisedToThePowerOfErrorTest(5,1,14);
         raisedToThePowerOfErrorTest(-6,1,13);
+        raisedToThePowerOfErrorTest(-6,1,0);
     }
 }

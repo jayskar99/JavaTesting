@@ -89,7 +89,9 @@ public class Rational
     }
 
     public Rational raisedToThePowerOf(int n) {
-        if (n == 0) {
+        if (n == 0 && (this.numerator < 0 || this.denominator < 0)) {
+            throw new IllegalArgumentException("negative to zero");
+        } else if (n == 0) {
             return new Rational(1);
         }
         int num = 1;
