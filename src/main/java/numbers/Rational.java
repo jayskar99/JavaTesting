@@ -1,4 +1,5 @@
 package numbers;
+import java.lang.Math;
 
 /**
  * Hello world!
@@ -123,7 +124,11 @@ public class Rational extends Number implements Comparable<Rational>
         if (o instanceof Integer) {
             return this.intValue() == (int) o;
         } else if (o instanceof Double) {
-            return this.doubleValue() == (double) o;
+            double lhs = this.doubleValue();
+            double rhs = (double) o;
+            double diff = Math.abs(lhs-rhs);
+            double largest = lhs > rhs ? lhs : rhs;
+            return  diff <= Math.ulp(largest);
         } else if (o instanceof Long) {
             return this.longValue() == (long) o;
         } else if (o instanceof Float) {
@@ -131,7 +136,7 @@ public class Rational extends Number implements Comparable<Rational>
             float rhs = (float) o;
             float diff = Math.abs(lhs-rhs);
             float largest = lhs > rhs ? lhs : rhs;
-            return  diff <= largest * 0.00001;
+            return  diff <= Math.ulp(largest);
         } else {
             Rational r = new Rational((Rational) o);
             return (this.numerator == r.numerator) && (this.denominator == r.denominator);
