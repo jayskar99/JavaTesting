@@ -191,11 +191,20 @@ public class RationalTest
         assertThat("the numerator should be " + String.valueOf(e), value.numerator(), is(e));
         assertThat("the denominator should be " + String.valueOf(f), value.denominator(), is(f));
     }
-    public void testPlus() 
+    public void plusErrorTest(int a, int b, int c, int d)
     {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThrows(IllegalArgumentException.class, () -> first.plus(second));
+    }
+    public void testPlus() 
+    {   
         plusTest(0,1,0,1,0,1);
         plusTest(2,3,2,3,4,3);
         plusTest(-2,3,2,3,0,1);
         plusTest(-2,3,1,1,1,3);
+
+        // overflow
+        plusErrorTest(1073741830,1,1073741900,1);
     }
 }

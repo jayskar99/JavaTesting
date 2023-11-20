@@ -51,6 +51,10 @@ public class Rational
         int commonDenominator = this.denominator * r.denominator;
         int rhs = (this.numerator * r.denominator);
         int lhs = (r.numerator * this.denominator);
+        if (((rhs > 0 && lhs > 0) || (rhs < 0 && lhs < 0)) && 
+            Integer.MAX_VALUE - Math.abs(rhs) < Math.abs(lhs)) {
+            throw new IllegalArgumentException("overflow in numerator");
+        }
         return new Rational(rhs + lhs,commonDenominator);
     }
 
