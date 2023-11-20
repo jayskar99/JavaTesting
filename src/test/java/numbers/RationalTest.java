@@ -362,11 +362,27 @@ public class RationalTest
         greaterThanRationalTest(1,1,1,2,true);
         greaterThanRationalTest(1,1,2,1,false);
         greaterThanRationalTest(1,2,1,1,false);
+        greaterThanRationalTest(1,1,1,1,false);
 
         greaterThanNumberTest(6,5,1,true);
         greaterThanNumberTest(1,2,1,false);
+        greaterThanNumberTest(1,1,1,false);
     }
 
 
-    
+    public void lessThanRationalTest(int a, int b, int c, int d, boolean e)
+    {
+        Rational first = new Rational(a, b);
+        Rational second = new Rational(c, d);
+        assertThat("less?", first.lessThan(second), is(e));
+    }
+    public void lessThanNumberTest(int a, int b, Number c, boolean e)
+    {
+        Rational first = new Rational(a, b);
+        assertThat("less", first.lessThan(c), is(e));
+    }
+    public void testLessThan()
+    {
+        lessThanRationalTest(1,1,0,1,false);
+    }
 }

@@ -139,4 +139,6 @@ public class Rational
             return rhs > lhs;
         }
     }
+
+    public boolean lessThan(Object o) { return !(this.greaterThan(o)) && !(this.equals(o)); }
 }
