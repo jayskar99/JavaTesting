@@ -206,6 +206,7 @@ public class RationalTest
 
         // would overflow 
         plusTest(715827883,2,3,4,1431655769,4);
+        plusTest(-715827883,2,-3,4,-1431655769,4);
 
         // overflow/underflow error
         plusErrorTest(1073741830,1,1073741900,1);
