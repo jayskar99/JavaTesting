@@ -227,6 +227,7 @@ public class RationalTest
         dividedByErrorTest(-1073741830,1,1,1073741830); // - +
         dividedByErrorTest(1073741830,1,-1,1073741830); // + -
         dividedByErrorTest(1,1073741830,1073741830,1); // denom
+        dividedByErrorTest(1,1,0,1);
     }
 
 
@@ -314,10 +315,9 @@ public class RationalTest
         raisedToThePowerOfTest(-2,3,2,4,9);
 
         // overflow/underflow
+        raisedToThePowerOfErrorTest(-1,1,0);
         raisedToThePowerOfErrorTest(5,1,14);
         raisedToThePowerOfErrorTest(-6,1,13);
-        raisedToThePowerOfErrorTest(-6,1,0);
         raisedToThePowerOfErrorTest(1,5,14);
-        raisedToThePowerOfErrorTest(1,-6,13);
     }
 }

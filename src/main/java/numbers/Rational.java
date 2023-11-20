@@ -77,7 +77,7 @@ public class Rational
         } else if (((rhs.numerator > 0 && lhs.numerator > 0) || (rhs.numerator < 0 && lhs.numerator < 0)) &&
                     (Integer.MAX_VALUE / Math.abs(rhs.numerator) < Math.abs(lhs.numerator))) {
             throw new IllegalArgumentException("overflow in numerator");
-        } else if ((rhs.numerator < 0 && Integer.MIN_VALUE / lhs.numerator > rhs.numerator) ||
+        } else if ((Integer.MIN_VALUE / lhs.numerator > rhs.numerator) ||
                     (lhs.numerator < 0 && Integer.MIN_VALUE / rhs.numerator > lhs.numerator)) {
             throw new IllegalArgumentException("underflow in numerator");
         }
@@ -89,7 +89,7 @@ public class Rational
     }
 
     public Rational raisedToThePowerOf(int n) {
-        if (n == 0 && (this.numerator < 0 || this.denominator < 0)) {
+        if (n == 0 && this.numerator < 0) {
             throw new IllegalArgumentException("negative to zero");
         } else if (n == 0) {
             return new Rational(1);
@@ -100,8 +100,7 @@ public class Rational
             if (((this.numerator > 0) && Integer.MAX_VALUE / this.numerator < num) ||
                 ((this.numerator < 0) && Integer.MAX_VALUE / Math.abs(this.numerator) < Math.abs(num))) {
                 throw new IllegalArgumentException("overflow in numerator");
-            } else if (((this.denominator > 0) && Integer.MAX_VALUE / this.denominator < den) ||
-                        ((this.denominator < 0) && Integer.MAX_VALUE / Math.abs(this.denominator) < Math.abs(den))) {
+            } else if (Integer.MAX_VALUE / this.denominator < den) {
                 throw new IllegalArgumentException("overflow in denominator");
             }
             num *= this.numerator;
