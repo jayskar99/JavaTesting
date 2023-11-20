@@ -31,22 +31,6 @@ public class Rational extends Number implements Comparable<Rational>
 
     private int lcd(int a, int b) { return (a * b) / gcd(a,b); }
 
-    private Rational toRational(Object o) {
-        Rational r = null;
-        if (o instanceof Integer) {
-            r = new Rational((Integer) o);
-        } else if (o instanceof Double) {
-            r = new Rational(((Double) o).intValue());
-        } else if (o instanceof Long) {
-            r = new Rational(((Long) o).intValue());
-        } else if (o instanceof Float) {
-            r = new Rational(((Float) o).intValue());
-        } else {
-            r = (Rational) o;
-        }
-        return r;
-    }
-
 
     // constructors
     public Rational() { this(0,1); }
@@ -168,17 +152,24 @@ public class Rational extends Number implements Comparable<Rational>
             return this.doubleValue() > (double) n;
         } else if (n instanceof Long) {
             return this.doubleValue() > n.doubleValue();
-        } else if (n instanceof Float) {
-            return this.floatValue() > (float) n;
         } else {
-            Rational r = new Rational((Rational) n);
-            return this.greaterThan(r);
+            return this.floatValue() > (float) n;
         }
     }
 
     public boolean lessThan(Rational r) { return !(this.greaterThan(r)) && !(this.equals(r)); }
 
-    public boolean lessThan(Number n) { return lessThan(toRational(n)); }
+    public boolean lessThan(Number n) {
+        if (n instanceof Integer) {
+            return this.doubleValue() < n.doubleValue();
+        } else if (n instanceof Double) {
+            return this.doubleValue() < (double) n;
+        } else if (n instanceof Long) {
+            return this.doubleValue() < n.doubleValue();
+        } else {
+            return this.floatValue() < (float) n;
+        }
+    }
 
     public int compareTo(Rational r) {
         if (this.lessThan(r)) return -1;
