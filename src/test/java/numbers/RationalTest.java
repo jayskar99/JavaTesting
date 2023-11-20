@@ -382,10 +382,15 @@ public class RationalTest
         equalsRationalTest(1,2,2,1,false);
         equalsRationalTest(1,2,1,1,false);
         equalsRationalTest(2,1,1,1,false);
+
         equalsNumberTest(1,1,1,true);
         equalsNumberTest(1,1,2,false);
         equalsNumberTest(1,1,1.0,true);
         equalsNumberTest(1,1,2.0,false);
+        equalsNumberTest(1,1,(long)1,true);
+        equalsNumberTest(1,1,(long)2,false);
+        equalsNumberTest(1,1,(float)1.0,true);
+        equalsNumberTest(1,1,(float)2.0,false);
     }
 
     public void greaterThanRationalTest(int a, int b, int c, int d, boolean e)
@@ -410,6 +415,7 @@ public class RationalTest
         greaterThanNumberTest(6,5,1,true);
         greaterThanNumberTest(1,2,1,false);
         greaterThanNumberTest(1,1,1,false);
+        greaterThanNumberTest(6,5,(double)1.125,true);
     }
 
 

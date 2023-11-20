@@ -37,6 +37,10 @@ public class Rational extends Number implements Comparable<Rational>
             r = new Rational((Integer) o);
         } else if (o instanceof Double) {
             r = new Rational(((Double) o).intValue());
+        } else if (o instanceof Long) {
+            r = new Rational(((Long) o).intValue());
+        } else if (o instanceof Float) {
+            r = new Rational(((Float) o).intValue());
         } else {
             r = (Rational) o;
         }
