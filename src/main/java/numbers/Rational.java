@@ -194,10 +194,11 @@ public class Rational extends Number implements Comparable<Rational>
     public String toString() {
         if (this.denominator == 1) {
             return Integer.toString(this.numerator);
-        } else if (this.numerator / this.denominator != 0) {
-            return Integer.toString(this.numerator / this.denominator) + " " + 
-                    Integer.toString(Math.abs(this.numerator % this.denominator)) + "/" + Integer.toString(this.denominator);
         }
+        // } else if (this.numerator / this.denominator != 0) {
+        //     return Integer.toString(this.numerator / this.denominator) + " " + 
+        //             Integer.toString(Math.abs(this.numerator % this.denominator)) + "/" + Integer.toString(this.denominator);
+        // }
         else {
             return Integer.toString(this.numerator) + "/" + Integer.toString(this.denominator);
         }
