@@ -332,5 +332,7 @@ public class RationalTest
     {
         equalsRationalTest(1,2,1,2,true);
         equalsRationalTest(1,2,2,1,false);
+        equalsRationalTest(1,2,1,1,false);
+        equalsRationalTest(2,1,1,1,false);
     }
 }
